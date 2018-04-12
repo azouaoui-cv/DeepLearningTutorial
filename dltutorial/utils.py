@@ -24,6 +24,7 @@ import logging
 
 # Movies database API packages
 import tmdbsimple as tmdb
+import imdb
 
 def get_api_key_tmdb(main_folder='./'):
     """
@@ -74,7 +75,7 @@ def get_movie_poster_tmdb(movie_name, search_tmdb):
         if the poster gets properly downloaded by the OS command
     """
     
-    logging.debug('Searching movie %s...' % movie_name)
+    logging.debug('Searching movie %s in TMDB...' % movie_name)
     # Response from TMDB API search object
     response = search_tmdb.movie(query=movie_name)
     # Getting movie ID
@@ -115,7 +116,7 @@ def get_movie_id_tmdb(movie_name, search_tmdb):
         ID of the movie in TMDB
     """
     # Response from TMDB API search object
-    logging.debug('Searching movie %s...' % movie_name)
+    logging.debug('Searching movie %s in TMDB...' % movie_name)
     response = search_tmdb.movie(query=movie_name)
     # Getting movie ID
     movie_id = response['results'][0]['id']
@@ -141,7 +142,7 @@ def get_movie_info_tmdb(movie_name, search_tmdb):
         dictionary containing movie info
     """
     
-    logging.debug('Searching movie %s...' % movie_name)
+    logging.debug('Searching movie %s in TMDB...' % movie_name)
     # Response from TMDB API search object
     response = search_tmdb.movie(query=movie_name)
     # Getting movie id
@@ -165,11 +166,11 @@ def get_movie_genres_tmdb(movie_name, search_tmdb):
         
     Returns
     ----------
-    - movie_genres : list of strings
-        strings list containing movie genres
+    - movie_genres : list of dictionaries
+        dictionaries list containing movie genres
     """
     
-    logging.debug('Searching movie %s...' % movie_name)
+    logging.debug('Searching movie %s in TMDB...' % movie_name)
     # Response from TMDB API search object
     response = search_tmdb.movie(query=movie_name)
     # Getting movie ID
