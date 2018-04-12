@@ -179,3 +179,55 @@ def get_movie_genres_tmdb(movie_name, search_tmdb):
     movie_genres = tmdb.Movies(movie_id).info()['genres']
     logging.debug('Movie genres retrieved %s...' % movie_genres)
     return movie_genres
+
+def get_movie_genres_imdb(movie_name, search_imdb):
+    """
+    Get movie genres from IMDB using movie name
+    
+    Parameters
+    -----------
+    - movie_name : string
+        Name of the movie
+        
+    - search_imdb : imdb.IMDb object
+        imdb instantiated object
+        
+    Returns
+    ----------
+    - movie_genres : list of strings
+        strings list containing movie genres
+    """
+    logging.debug("Search movie %s in IMDB..." % movie_name)
+    # Search and retrieve first result
+    movie_info = search_imdb.search_movie(movie_name)[0]
+    # Enrich movie infos
+    search_imdb.update(movie_info)
+    # Extract movie genres
+    movie_genres = movie_info['genres']
+    logging.debug("Retrieving movie genres %s..." % movie_genres)
+    return movie_genres
+
+def get_movie_info_imdb(movie_name, search_imdb):
+    """
+    Get movie infos from IMDB using movie name
+    
+    Parameters
+    -----------
+    - movie_name : string
+        Name of the movie
+        
+    - search_imdb : imdb.IMDb object
+        imdb instantiated object
+        
+    Returns
+    ----------
+    - movie_info : dictionary
+        dictionary containing movie infos
+    """
+    logging.debug("Search movie %s in IMDB..." % movie_name)
+    # Search and retrieve first result
+    movie_info = search_imdb.search_movie(movie_name)[0]
+    # Enrich movie infos
+    search_imdb.update(movie_info)
+    logging.debug("Movie info retrieved? %s..." % (movie_info is not None))
+    return movie_info
