@@ -57,7 +57,7 @@ def get_api_key_tmdb(main_folder='./'):
     return api_key
 
 
-def get_movie_poster_tmdb(movie_name, search_tmdb):
+def get_movie_poster_tmdb(movie_name, search_tmdb, path):
     """
     Download a movie poster from TMDB using the movie name.
     
@@ -68,6 +68,9 @@ def get_movie_poster_tmdb(movie_name, search_tmdb):
     
     - search_tmdb : tmdb.Search object
         tmdb instantiated Search object
+        
+    - path : string
+        path where to store the results
         
     Returns
     ----------
@@ -90,9 +93,9 @@ def get_movie_poster_tmdb(movie_name, search_tmdb):
     url = 'image.tmdb.org/t/p/original' + poster_path
     logging.debug('URL to get downloaded %s...' % url)
     # Renaming title with underscores
-    movie_title= '_'.join(movie_title.split(' '))
+    movie_title = '_'.join(movie_title.split(' '))
     # Setting wget download command
-    strcmd = 'wget -O '+ complete_path + movie_title + '.jpg ' + url
+    strcmd = 'wget -O '+ path + movie_title + '.jpg ' + url
     # Executing command
     logging.debug('wget command to be executed %s...' % strcmd)
     os.system(strcmd)
