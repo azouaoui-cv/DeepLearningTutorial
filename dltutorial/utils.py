@@ -234,3 +234,57 @@ def get_movie_info_imdb(movie_name, search_imdb):
     search_imdb.update(movie_info)
     logging.debug("Movie info retrieved? %s..." % (movie_info is not None))
     return movie_info
+
+def custom_precision_recall(ground_truth, predictions):
+    """
+    Returns the precision and the recall of a prediction given 
+    that we operate on multilabel-indicator labeling data
+    
+    Parameters
+    -----------------
+    - ground_truth : list of strings
+        List of true genre strings
+    
+    - predictions : list of strings
+        List of predicted genre strings
+        
+    Returns
+    ------------------
+    - precision : float
+        Between 0 and 1
+        Assess if a class is rightfully predicted
+        whenever it is indeed the ground truth
+        (i.e. P = TP / (TP + FP))
+        
+    - recall : float
+        Between 0 and 1
+        Assess if a class is only predicted when it
+        is indeed the ground truth
+        (i.e. R = TP / (TP + FN))
+    """
+    
+    TP = 0
+    FN = 0
+    FP = 0
+    logging.debug("Ground_truth is of size: %d" % len(ground_truth))
+    logging.debug("Predictions is of size: %d" % len(predictions))
+    assert len(ground_truth) == len(predictions)
+    # Loop through ground truth
+    for true_label in ground_truth:
+        # Indeed predicted
+        if true_label in predictions:
+            TP += 1
+        # Missed by prediction
+        else:
+            FN += 1
+        
+    # Loop through predictions
+    for prediction in predictions:
+        # What is predicted is missing in ground truth
+        if prediction not in ground_truth:
+            FP += 1
+            
+    precision = 0 if TP + FP == 0 else TP / float(TP + FP)
+    recall = 0 if TP + FN == 0 else TP / float(TP + FN)
+    
+    return precision, recall
