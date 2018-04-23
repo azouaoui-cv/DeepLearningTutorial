@@ -104,3 +104,4 @@ ENV/
 dltutorial/logs/
 dltutorial/private/
 dltutorial/data/
+dltutorial/models/
