@@ -20,8 +20,8 @@ from dltutorial.utils import get_movie_info_tmdb
 from dltutorial.utils import get_movie_genres_tmdb
 from dltutorial.utils import get_api_key_tmdb
 
-from dltutorials.utils import get_movie_info_imdb
-from dltutorials.utils import get_movie_genres_imdb
+from dltutorial.utils import get_movie_info_imdb
+from dltutorial.utils import get_movie_genres_imdb
 
 
 
