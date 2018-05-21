@@ -1,4 +1,4 @@
-# Today I Learnt (TIL)
+# Today I Learned (TIL)
 
 **2018/04/10**
 
@@ -15,4 +15,4 @@
 
 **2018/04/16**
 
-* REPL stands for *Read-eval-print loop*. It is an interactive computer programming environment that takes single user inputs, evaluates them and returns the result to the user. The program written in aa REPL environment is executed piecewise. (source)[https://en.wikipedia.org/wiki/Read-eval-print_loop]
+* REPL stands for *Read-eval-print loop*. It is an interactive computer programming environment that takes single user inputs, evaluates them and returns the result to the user. The program written in a REPL environment is executed piecewise ([source])(https://en.wikipedia.org/wiki/Read-eval-print_loop).
