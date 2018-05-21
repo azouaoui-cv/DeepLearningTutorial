@@ -105,3 +105,6 @@ dltutorial/logs/
 dltutorial/private/
 dltutorial/data/
 dltutorial/models/
+
+# pytest
+.pytest_cache/
