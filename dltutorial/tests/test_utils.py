@@ -78,7 +78,7 @@ def test_utils_imdb(test_movie_name="The Matrix"):
     search_imdb = imdb.IMDb()
     
     # Unit tests
-    movie_genres = get_movie_genres_imdb(movie_name=movie_name, search_imdb=search_imdb)
+    movie_genres = get_movie_genres_imdb(movie_name=test_movie_name, search_imdb=search_imdb)
     assert isinstance(movie_genres, list)
-    movie_info = get_movie_info_imdb(movie_name=movie_name, search_imdb=search_imdb)
+    movie_info = get_movie_info_imdb(movie_name=test_movie_name, search_imdb=search_imdb)
     assert isinstance(movie_info, imdb.Movie.Movie)
