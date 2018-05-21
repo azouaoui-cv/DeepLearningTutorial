@@ -1,0 +1,5 @@
+name: dltutorial
+channels:
+  - defaults
+prefix: /home/inzouzouwetrust/anaconda3/envs/dltutorial
+
